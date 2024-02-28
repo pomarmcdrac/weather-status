@@ -22,7 +22,7 @@ class CustomSearchBar extends StatelessWidget {
       ),
       height: 50,
       width: 560,
-      padding: const EdgeInsets.all(5),
+      padding: const EdgeIngit asets.all(5),
       child: TypeAheadField(
         textFieldConfiguration: TextFieldConfiguration(
           enableInteractiveSelection: false,

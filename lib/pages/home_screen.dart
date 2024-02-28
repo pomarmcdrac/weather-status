@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weather_status_5_days/logic/weather_screen_logic.dart';
+import 'package:weather_status_5_days/widgets/widgets.dart';
 
 class HomeScreen extends StatefulWidget {
 
@@ -25,12 +25,11 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Center(
         child: Column(
           children: [
-            const Text('HomeScreen'),
+            const CustomSearchBar(),
             TextButton(
               onPressed: () async {
-                final response = await getCities();
-                final responsive = await getWeather(19.4326077, -99.133208);
-                print(responsive);
+                // final response = await getCities();
+                // final responsive = await getWeather(19.4326077, -99.133208);
               }, 
               child: const Text('getCities')
             )

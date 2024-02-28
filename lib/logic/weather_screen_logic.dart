@@ -38,8 +38,8 @@ Future<List<Cities>> getCities() async {
 //To get weather
 Future<Weather> getWeather(double lat, double lon) async {
 
-  final String appId = '0eebd1fcf852d29ca0340c5c451d4c9a';
-  final String units = 'metric';
+  const String appId = '0eebd1fcf852d29ca0340c5c451d4c9a';
+  const String units = 'metric';
 
   try {
     // Define the URL for the API endpoint
@@ -57,8 +57,6 @@ Future<Weather> getWeather(double lat, double lon) async {
       // Deserialize JSON data into Weather object
       final Weather weather = Weather.fromMap(data);
 
-      print(weather.city.name);
-
       // Return the weather object extracted from the response
       return weather;
     } else {
@@ -67,9 +65,9 @@ Future<Weather> getWeather(double lat, double lon) async {
     }
   } catch (e) {
     // Error handling
-    print('Error in getWeather: $e');
+    Exception('Error in getWeather: $e');
 
     // Rethrow the exception to propagate it up
-    throw e;
+    rethrow;
   }
 }

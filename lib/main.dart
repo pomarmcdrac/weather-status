@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:weather_status_5_days/pages/screens.dart';
+import 'package:weather_status_5_days/pages/weather_screen.dart';
 
 // Entry point of the application
 void main() {
@@ -49,7 +50,8 @@ class MyApp extends StatelessWidget {
       // Set the initial route and define named routes with corresponding widgets
       initialRoute: HomeScreen.routerName,
       routes: {
-        HomeScreen.routerName: (context) => const HomeScreen(),
+        HomeScreen.routerName:        (context) => const HomeScreen(),
+        WeatherScreen.routerName:     (context) => const WeatherScreen(), 
       },
     );
   }

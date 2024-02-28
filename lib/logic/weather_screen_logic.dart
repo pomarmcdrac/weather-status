@@ -13,7 +13,7 @@ Future<List<Cities>> getCities() async {
     final http.Response response = await http.get(url);
 
     // Check if the response status code is 200 (OK)
-    if (response.statusCode == 200) {
+    if (response.statusCode == 200 || response.statusCode == 201) {
       // Parse the response body as JSON
       final List<dynamic> data = jsonDecode(response.body);
 
@@ -50,7 +50,7 @@ Future<Weather> getWeather(double lat, double lon) async {
     final http.Response response = await http.get(url);
 
     // Check if the response status code is 200 (OK)
-    if (response.statusCode == 200) {
+    if (response.statusCode == 200 || response.statusCode == 201) {
       // Parse the response body as JSON
       final Map<String, dynamic> data = jsonDecode(response.body);
 

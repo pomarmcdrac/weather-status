@@ -15,11 +15,11 @@ class IconBack extends StatelessWidget {
       onPressed: () {
         Navigator.pushReplacementNamed(context, HomeScreen.routerName);
       }, 
-      icon: Icon(
+      icon: const Icon(
         Icons.arrow_back_ios_new_rounded,
         color: Colors.blue,
-        size: size.width * 0.1,
-        shadows: const [
+        size: 30,
+        shadows: [
           Shadow(
             color: Colors.white,
           )

@@ -71,6 +71,9 @@ class _WeatherScreenState extends State<WeatherScreen> {
                 weatherCity.city.country == ''
                 ? const LinearProgressIndicator()
                 : WeatherStatus(size: size, weatherCity: weatherCity),
+                weatherCity.city.country == ''
+                ?  Container()
+                : ListWeather(size: size, weatherCity: weatherCity),
               ],
             ),
           ),
@@ -81,4 +84,6 @@ class _WeatherScreenState extends State<WeatherScreen> {
     );
   }
 }
+
+
 

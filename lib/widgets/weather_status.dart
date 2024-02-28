@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:weather_status_5_days/models/models.dart';
 
 class WeatherStatus extends StatelessWidget {
@@ -15,34 +16,44 @@ class WeatherStatus extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        color: Colors.grey.withOpacity(0.5),
-      ),
-      child: Row(
-        children: [
-          SizedBox(
-            width: size.width * 0.7,
-            child: Column(
-              children: [
-                AjustTextTitle(weatherCity: weatherCity),
-                AjustTextSub(text: weatherCity.city.country),
-              ],
+
+    String expresionRegular(double temp){
+      NumberFormat f = NumberFormat("##0", "es_MX");
+      String result = f.format(temp);
+      return result;
+    }
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          color: Colors.grey.withOpacity(0.5),
+        ),
+        child: Row(
+          children: [
+            SizedBox(
+              width: size.width * 0.6,
+              child: Column(
+                children: [
+                  AjustTextTitle(weatherCity: weatherCity),
+                  AjustTextSub(text: "${expresionRegular(weatherCity.list[0].main.temp).toString()} °C"),
+                ],
+              ),
             ),
-          ),
-          SizedBox(
-            width: size.width * 0.3,
-            child: Column(
-              children: [
-                CachedNetworkImage(
-                  imageUrl: 'http://openweathermap.org/img/w/${weatherCity.list[0].weather[0].icon}.png'
-                ),
-                AjustTextSub(text: weatherCity.list[0].weather[0].main),
-              ],
-            ),
-          )
-        ],
+            SizedBox(
+              width: size.width * 0.3,
+              child: Column(
+                children: [
+                  CachedNetworkImage(
+                    imageUrl: 'http://openweathermap.org/img/w/${weatherCity.list[0].weather[0].icon}.png'
+                  ),
+                  AjustTextSub(text: weatherCity.list[0].weather[0].main),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

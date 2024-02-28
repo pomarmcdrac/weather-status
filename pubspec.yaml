@@ -31,8 +31,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
+  flutter_typeahead: ^5.2.0
   http: ^1.2.0
-  material_floating_search_bar: ^0.3.7
 
 dev_dependencies:
   flutter_lints: ^2.0.0

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:weather_status_5_days/models/models.dart';
 import 'package:weather_status_5_days/widgets/widgets.dart';
+
+import '../logic/weather_screen_logic.dart';
 
 class HomeScreen extends StatefulWidget {
 
@@ -13,10 +16,18 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
 
+  List<Cities> listCities = [];
+  List<String> cities = [];
+
   @override
   void initState() {
     super.initState();
-    // getCities();
+    getCities().then((value) {
+      listCities = value;
+      for (var element in value) {
+        cities.add(element.cityName);
+      }
+    });
   }
 
   @override
@@ -25,10 +36,9 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Center(
         child: Column(
           children: [
-            const CustomSearchBar(),
+            CustomSearchBar(cities: cities ),
             TextButton(
               onPressed: () async {
-                // final response = await getCities();
                 // final responsive = await getWeather(19.4326077, -99.133208);
               }, 
               child: const Text('getCities')
